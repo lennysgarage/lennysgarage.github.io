@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jonathanmarcantonio</title>
+    <link>/</link>
+    <description>Recent content on jonathanmarcantonio</description>
+    <image>
+      <url>/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hey there 👋!
+I&amp;rsquo;m Jonathan Marcantonio. I am currently a third-year Computer Science student studying at the University of Toronto Mississauga.
+I love to work on exciting little projects all the time. If I&amp;rsquo;m not working on some project, I am probably deeply entrenched in a 4x strategy game.
+You can checkout what I&amp;rsquo;m currently doing, on my Github @lennysgarage.
+   Feel free to connect with me below.           </description>
+    </item>
+    
+    
+    <item>
+      <title>What I&#39;ve done</title>
+      <link>/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>  DiscordMemories A Discord bot for exploring past memories DiscordMemories   PyJaC-IEEE A simple IEEE-754 to Decimal and Decimal to IEEE-754 single precision converter PyJaC-IEEE   WikiLink A url &#34;extender&#34; using a random wikipedia article&#39;s contents WikiLink   Discord Crash Bot A proof of concept Discord bot to create freezing mp4s DiscordCrashBot </description>
+    </item>
+    
+  </channel>
+</rss>
