@@ -3,7 +3,6 @@ title: jonathanmarcantonio
 paginate: 5
 theme: PaperMod
 
-enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
