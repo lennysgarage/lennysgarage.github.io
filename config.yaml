@@ -3,6 +3,7 @@ title: jonathanmarcantonio
 paginate: 5
 theme: PaperMod
 
+enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -111,12 +112,9 @@ menu:
           name: Search
           url: /search/
           weight: 40
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-# pygmentsUseClasses: true
-# markup:
-#     highlight:
-#         # anchorLineNos: true
-#         codeFences: true
-#         guessSyntax: true
-#         lineNos: true
-#         style: monokai
+
+# Allows for my inline js in markdown
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
