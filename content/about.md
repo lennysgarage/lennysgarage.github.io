@@ -7,7 +7,7 @@ Hey there 👋!
 I'm Jonathan Marcantonio. I am currently a third-year Computer Science student studying at the University of Toronto Mississauga.
 
 
-I love 
+I love to work on exciting little projects all the time. If I'm not working on some project, I am probably deeply entrenched in a 4x strategy game.
 
 
 You can checkout what I'm currently doing, on my Github [@lennysgarage][github]. 
