@@ -3,6 +3,35 @@ title: "What I've done"
 ---
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+a {
+  color: transparent;
+}
+
+.demo {background-color: #57a818;} /* Green */
+</style>
+
+<center><img alt="Wikify logo" style="border-radius: 50%;" width="200", height="200" src="/images/wikify.png"></center>
+<h1 style="text-align: center">WikiLink</h1>
+<h3 style="text-align: center">Extend any URL using a random wikipedia article's contents</h3>
+<center><a class="github-button" href="https://github.com/lennysgarage/WikiLink" data-size="large" aria-label="Visit lennysgarage/WikiLink on GitHub">WikiLink</a></center>
+<center><a href="https://wikifylink.me/" target="_blank"><button class="button demo">Demo</button></a></center>
+
+
+<hr/>
+<br/>
+
 
 <center><img alt="Adam levine from maroon 5" style="border-radius: 50%;" width="200" height="200" src="/images/maroon5.jpg"></center>
 <h1 style="text-align: center">DiscordMemories</h1>
@@ -23,13 +52,6 @@ title: "What I've done"
 <br/>
 
 
-<h1 style="text-align: center">WikiLink</h1>
-<h3 style="text-align: center">A url "extender" using a random wikipedia article's contents</h3>
-<center><a class="github-button" href="https://github.com/lennysgarage/WikiLink" data-size="large" aria-label="Visit lennysgarage/WikiLink on GitHub">WikiLink</a></center>
-
-
-<hr/>
-<br/>
 
 
 <h1 style="text-align: center">Discord Crash Bot</h1>
