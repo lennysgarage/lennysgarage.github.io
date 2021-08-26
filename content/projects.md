@@ -15,18 +15,16 @@ title: "What I've done"
   margin: 4px 2px;
   cursor: pointer;
 }
-a {
-  color: transparent;
-}
 
 .demo {background-color: #57a818;} /* Green */
+.demolink {color: transparent}
 </style>
 
 <center><img alt="Wikify logo" style="border-radius: 50%;" width="200", height="200" src="/images/wikify.png"></center>
 <h1 style="text-align: center">WikiLink</h1>
 <h3 style="text-align: center">Extend any URL using a random wikipedia article's contents</h3>
 <center><a class="github-button" href="https://github.com/lennysgarage/WikiLink" data-size="large" aria-label="Visit lennysgarage/WikiLink on GitHub">WikiLink</a></center>
-<center><a href="https://wikifylink.me/" target="_blank"><button class="button demo">Demo</button></a></center>
+<center><a class="demolink" href="https://wikifylink.me/" target="_blank"><button class="button demo">Demo</button></a></center>
 
 
 <hr/>
