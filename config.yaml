@@ -1,7 +1,9 @@
 baseURL: "/"
 title: jonathanmarcantonio
 paginate: 5
-theme: PaperMod
+theme: 
+  - MyChanges
+  - PaperMod
 
 enableRobotsTXT: true
 buildDrafts: false
