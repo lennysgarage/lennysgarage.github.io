@@ -67,6 +67,8 @@ params:
           url: "mailto:jonathan.marcantonio@mail.utoronto.ca"
         - name: "LinkedIn"
           url: "https://www.linkedin.com/in/jonathan-marcantonio"
+        - name: "Letterboxd"
+          url: "https://letterboxd.com/lennysgarage/"
 
 
     analytics:
