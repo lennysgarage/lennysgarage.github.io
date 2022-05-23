@@ -18,17 +18,17 @@ const Contact = ({ contactEmail, contactPara, socialLinks }) => {
                         </a>
                     </li>
                     <li>
-                        <a href={socialLinks[0].url}>
+                        <a href={socialLinks[0].url} rel="noreferrer" target="_blank">
                             <FaLinkedin />
                         </a>
                     </li>
                     <li>
-                        <a href={socialLinks[1].url}>
+                        <a href={socialLinks[1].url} rel="noreferrer" target="_blank">
                             <FaGithub />
                         </a>
                     </li>
                     <li>
-                        <a href={socialLinks[2].url}>
+                        <a href={socialLinks[2].url} rel="noreferrer" target="_blank">
                             <SiLetterboxd />
                         </a>
                     </li>

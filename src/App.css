@@ -10,7 +10,8 @@ body {
   font-size: 10px;
   font-family: "Open Sans";
   box-sizing: border-box;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+  background-image: linear-gradient(135deg, #FFCDB2 0%, #c3cfe2 100%);
 }
 
 .App {
@@ -73,7 +74,8 @@ a {
   font-family: "Montserrat";
 }
 .homeContainer .homeHeaderWrapper h1 span {
-  color: #1e6fd9;
+  /* color: #1e6fd9; */
+  color: #ce796b;
 }
 .homeContainer .homeHeaderWrapper p {
   position: relative;
@@ -84,14 +86,15 @@ a {
 
 .homeContainer .imageContainer img {
   position: relative;
-  height: 24rem;
-  width: 16rem;
+  height: 34rem;
+  width: 28rem;
   top: 5rem;
   border-style: solid;
   border-width: 5px;
   border-top: 0px;
   border-left: 0px;
-  border-color: #1e6fd9;
+  /* border-color: #1e6fd9; */
+  border-color: #B5838D;
   transition: transform 0.5s ease;
 }
 
@@ -137,6 +140,11 @@ a {
 
 .git-color {
   color: rgb(67, 67, 182);
+}
+
+.git-color:hover {
+  transform: scale(0.9);
+  display: inline-block;
 }
 
 /* Contact */

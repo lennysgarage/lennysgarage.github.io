@@ -10,6 +10,7 @@ export default data = {
 
     landingPageImage: "assets/landingPageImage.jpg",
 
+    
     projects: [
         {
             id: 0,
@@ -20,24 +21,12 @@ export default data = {
             git: "https://github.com/lennysgarage/WikiLink",
             url: "https://wikifylink.me/"
         }
-
-        // Paste more projects here from the template
-    /*
-                    If You Want To Add More Project just Copy and Paste This At The End (Update the id Respectively)
-                ,{
-                id: 7,
-                service: 'Something Amazing',
-                imageSrc: "",
-                url: ''
-            }
-                */
     ],
 
     // Contact Section
   contactPara:
     "I would be happy to further discuss my experiences with you, simply shoot me an email or message me on LinkedIn! :)",
   social: [
-    // Add Or Remove The Link Accordingly
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/jonathan-marcantonio/"
