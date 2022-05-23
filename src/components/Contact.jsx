@@ -4,7 +4,7 @@ import { SiLetterboxd } from "react-icons/si";
 
 const Contact = ({ contactEmail, contactPara, socialLinks }) => {
     return (
-        <div className="contactContainer">
+        <div className="contactContainer" id="contact">
             <h1>Get in touch.</h1>
             <p>{contactPara}</p>
             <a className="email_link" href={`mailto:${contactEmail}`}>

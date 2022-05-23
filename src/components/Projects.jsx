@@ -1,8 +1,8 @@
 import React from "react";
 
-const Work = ({ projects }) => {
+const Projects = ({ projects }) => {
     return (
-        <div className="workContainer">
+        <div className="workContainer" id="projects">
             <h1>Projects.</h1>
             <div className="projectsContainer">
                 {projects.map(project => (
@@ -24,4 +24,4 @@ const Work = ({ projects }) => {
     );
 }
 
-export default Work;
+export default Projects;
