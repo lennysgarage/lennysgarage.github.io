@@ -8,14 +8,14 @@ const Projects = ({ projects }) => {
                 {projects.map(project => (
                     <div key={project.id} className="project">
                         <div className="image">
-                            <a href={project.url}>
+                            <a href={project.url} rel="noreferrer" target="_blank">
                                 <img src={project.imageSrc} alt={project.title} />
                             </a>
                         </div>
                         <div className="title">
                             <strong>{project.title}</strong><br />
                             {project.short}
-                            <a className="git-color" href={project.git}> (Github)</a>
+                            <a className="git-color" href={project.git} rel="noreferrer" target="_blank"> (Github)</a>
                         </div>
                     </div>
                 ))}

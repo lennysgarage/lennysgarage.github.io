@@ -129,6 +129,7 @@ a {
   height: 30rem;
   width: 100%;
   transition: transform 0.5s ease;
+  border-radius: 3rem;
 }
 
 .workContainer .projectsContainer img:hover {
