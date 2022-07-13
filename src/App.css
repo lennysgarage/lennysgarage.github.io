@@ -191,6 +191,10 @@ a {
   font-size: 2rem;
 }
 
+.social_links li a svg:hover {
+  fill: #00B020;
+}
+
 /* About */
 
 .spaceAbout {
