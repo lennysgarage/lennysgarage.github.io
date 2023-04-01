@@ -6,7 +6,7 @@ export default data = {
 
     landingPageName: "Jonathan Marcantonio",
 
-    landingPagePara: "A computer science student at the University Of Toronto.",
+    landingPagePara: "A computer science student at the University of Toronto.",
 
     landingPageImage: "assets/landingPageImage.jpg",
 
@@ -18,7 +18,7 @@ export default data = {
             short: "Extend any URL using a random wikipedia article's contents.",
             imageSrc: "assets/wikilink.png",
             git: "https://github.com/lennysgarage/WikiLink",
-            url: "https://wikifylink.me/"
+            url: "https://tender-shaw-eff2a3.netlify.app/"
         },
         {
           id: 1,
