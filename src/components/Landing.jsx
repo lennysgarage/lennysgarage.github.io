@@ -4,6 +4,7 @@ import Home from './Home';
 import Projects from './Projects';
 import Contact from './Contact';
 import data from '../myData';
+import ScrollToTop from './ScrollToTop';
 
 
 const Landing = () => {
@@ -12,9 +13,10 @@ const Landing = () => {
             <div className="fullpage">
                 <Header name={data.name}></Header>
                 <Home name={data.landingPageName} paragraph={data.landingPagePara} profileImage={data.landingPageImage}/>
+                <Projects projects={data.projects}/>
+                <Contact contactEmail={data.contactEmail} contactPara={data.contactPara} socialLinks={data.social}/>
             </div>
-            <Projects projects={data.projects}/>
-            <Contact contactEmail={data.contactEmail} contactPara={data.contactPara} socialLinks={data.social}/>
+                <ScrollToTop />
         </div>
     )
 }

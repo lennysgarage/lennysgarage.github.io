@@ -26,6 +26,20 @@ a {
   color: black;
 }
 
+.ScrollUp {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 48px;
+  width: 48px;
+}
+
 /* Header */
 
 .headerContainer {
@@ -134,7 +148,7 @@ a {
 
 .workContainer .projectsContainer img:hover {
   opacity: 0.8;
-  transform: scale(0.9);
+  transform: scale(1.025);
 }
 
 .workContainer .projectsContainer .title {
@@ -143,11 +157,6 @@ a {
 
 .git-color {
   color: rgb(67, 67, 182);
-}
-
-.git-color:hover {
-  transform: scale(0.9);
-  display: inline-block;
 }
 
 /* Contact */
