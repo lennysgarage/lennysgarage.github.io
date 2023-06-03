@@ -14,7 +14,7 @@ const Header = ({ name }) => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/resume">
+                            <Link to="/assets/jmresume.pdf" target="_blank">
                                 <h2>resume</h2>
                             </Link>
                         </li>
