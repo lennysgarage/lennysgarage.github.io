@@ -14,7 +14,7 @@ const Header = ({ name }) => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/assets/jmresume.pdf" target="_blank">
+                            <Link to="/assets/Jonathan_Marcantonio_Resume.pdf" target="_blank">
                                 <h2>resume</h2>
                             </Link>
                         </li>
