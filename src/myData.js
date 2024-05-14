@@ -15,7 +15,7 @@ export default data = {
         {
             id: 0,
             title: "WikiLink",
-            short: "Extend any URL using a random wikipedia article's contents.",
+            short: "Extend any URL using a random Wikipedia article's contents.",
             imageSrc: "assets/wikilink.png",
             git: "https://github.com/lennysgarage/WikiLink",
             url: "https://tender-shaw-eff2a3.netlify.app/"
@@ -30,22 +30,30 @@ export default data = {
       },
       {
         id: 2,
+        title: "Plexboxd",
+        short: "A Chrome extension to view Letterboxd movie ratings directly on Plex.",
+        imageSrc: "assets/plexboxd.png",
+        git: "https://github.com/lennysgarage/Plexboxd",
+        url: "https://chromewebstore.google.com/detail/plexboxd/nofkoinidebfleimhjmilhhbbecaalhh"
+    },
+      {
+        id: 3,
         title: "Letterboxd Scraper",
-        short: "A web scraper tool to download a letterboxd watchlist or other public list.",
+        short: "A web scraper tool to download a Letterboxd watchlist or other public list.",
         imageSrc: "assets/letterboxdscraper.png",
         git: "https://github.com/lennysgarage/letterboxd-scraper",
         url: "https://taupe-lollipop-099fa5.netlify.app/"
     },
       {
-        id: 3,
+        id: 4,
         title: "Letterboxd Picker",
-        short: "A web tool to pick a movie off your letterboxd watchlist.",
+        short: "A web tool to pick a movie off your Letterboxd watchlist.",
         imageSrc: "assets/letterboxdpicker.png",
         git: "https://github.com/lennysgarage/letterboxd-picker",
         url: "https://willowy-cucurucho-2a592f.netlify.app/"
     },
       {
-        id: 4,
+        id: 5,
         title: "PyJaC-IEEE",
         short: "A responsive IEEE-754 to Decimal and Decimal to IEEE-754 single precision converter.",
         imageSrc: "assets/IEEE-754.jpg",
