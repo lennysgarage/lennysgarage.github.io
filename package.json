@@ -1,6 +1,6 @@
 {
   "name": "lennysgarage.github.io",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://lennysgarage.github.io/",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^6.2.0"
   }
 }

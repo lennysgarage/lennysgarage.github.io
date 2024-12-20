@@ -2,11 +2,11 @@ let data;
 export default data = {
     name: "Jonathan",
 
-    contactEmail: "jonathan.marcantonio@mail.utoronto.ca",
+    contactEmail: "lennysgarage1@gmail.com",
 
     landingPageName: "Jonathan Marcantonio",
 
-    landingPagePara: "A computer science student at the University of Toronto.",
+    landingPagePara: "A Software Engineer at Red Hat.",
 
     landingPageImage: "assets/landingPageImage.jpg",
 
