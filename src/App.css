@@ -257,8 +257,12 @@ a {
     font-size: 1rem;
   }
 
+  .headerContainer ul {
+    padding: 0%;
+  }
+
   .headerContainer ul li {
-    padding-right: 1rem;
+    padding-right: 0.5rem;
   }
 
   /* Home */
@@ -287,6 +291,7 @@ a {
     height: 10rem;
     width: 8rem;
     top: 2rem;
+    right: 6rem;
   }
 
   /* Projects */
@@ -314,7 +319,7 @@ a {
   /* Contact */
 
   .contactContainer {
-    top: 22.5rem;
+    top: 12.5rem;
   }
 
   .contactContainer h1 {
@@ -322,12 +327,12 @@ a {
   }
 
   .contactContainer p {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     top: -1rem;
   }
 
   .contactContainer .email_link {
-    font-size: 1rem;
+    font-size: 1.25rem;
     top: 0rem;
   }
 
@@ -336,7 +341,7 @@ a {
   }
 
   .contactContainer li a {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 
