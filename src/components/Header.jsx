@@ -14,6 +14,11 @@ const Header = ({ name }) => {
                 <nav>
                     <ul>
                         <li>
+                            <Link to="/blog">
+                                <h2>blog</h2>
+                            </Link>
+                        </li>
+                        <li>
                             <Link to="/assets/Jonathan_Marcantonio_Resume.pdf" target="_blank">
                                 <h2>resume</h2>
                             </Link>
