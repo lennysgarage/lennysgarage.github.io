@@ -1,6 +1,6 @@
 ---
 title: "My First Blog Post"
-date: "2024-01-15"
+date: "2026-01-18"
 excerpt: "Welcome to my blog! This is my first post where I'll be sharing my thoughts and experiences."
 ---
 
