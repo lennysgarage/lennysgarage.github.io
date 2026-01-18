@@ -96,15 +96,16 @@ const Blog = () => {
                                         <h2 className="blog-post-title">{post.title}</h2>
                                         <div className="blog-post-meta">
                                             <span className="blog-post-date">
-                                                {new Date(post.date).toLocaleDateString('en-US', {
-                                                    year: 'numeric',
-                                                    month: 'long',
-                                                    day: 'numeric'
-                                                })}
+                                                {(() => {
+                                                    const date = new Date(post.date);
+                                                    date.setDate(date.getDate() + 1);
+                                                    return date.toLocaleDateString('en-US', {
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric'
+                                                    });
+                                                })()}
                                             </span>
-                                            {post.author && (
-                                                <span className="blog-post-author">by {post.author}</span>
-                                            )}
                                         </div>
                                         <p className="blog-post-excerpt">{post.excerpt}</p>
                                     </Link>

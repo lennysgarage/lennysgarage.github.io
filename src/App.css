@@ -10,8 +10,19 @@ body {
   font-size: 10px;
   font-family: "Open Sans";
   box-sizing: border-box;
-  /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
-  background-image: linear-gradient(135deg, #FFCDB2 0%, #c3cfe2 100%);
+  background-image: linear-gradient(135deg, 
+    #FFCDB2 0%, 
+    #F5C4B8 15%, 
+    #E8BCC8 30%, 
+    #D9B4D4 45%, 
+    #C8AED8 60%, 
+    #B8A8DC 75%, 
+    #B0A8E0 90%, 
+    #c3cfe2 100%
+  );
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  min-height: 100vh;
 }
 
 .App {
@@ -507,11 +518,12 @@ a {
 }
 
 .blog-post-card {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
   padding: 2.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(181, 131, 141, 0.2);
+  border: 1px solid rgba(181, 131, 141, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .blog-post-card:hover {
@@ -577,10 +589,11 @@ a {
 }
 
 .blog-post {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
   padding: 4rem;
-  border: 1px solid rgba(181, 131, 141, 0.2);
+  border: 1px solid rgba(181, 131, 141, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .blog-post-header {
