@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lennysgarage — Articles</title>
+    <link>https://lennysgarage.github.io/blog/</link>
+    <description>Thoughts, experiences, and learnings by Jonathan Marcantonio.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://lennysgarage.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Blog Post</title>
+      <link>https://lennysgarage.github.io/blog/2026/01/18/my-first-post/</link>
+      <guid isPermaLink="true">https://lennysgarage.github.io/blog/2026/01/18/my-first-post/</guid>
+      <pubDate>Sun, 18 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Welcome to my blog! This is my first post where I&apos;ll be sharing my thoughts and experiences.</description>
+    </item>
+  </channel>
+</rss>
