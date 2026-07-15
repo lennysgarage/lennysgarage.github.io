@@ -1,10 +1,16 @@
 #!/usr/bin/env node
 /**
- * Blog manifest + RSS feed generator.
+ * Blog manifest + RSS feed + per-post JSON generator.
  *
- * Scans public/blog/*.md, parses YAML frontmatter, and writes:
- *   - public/blog/blog-manifest.json  (consumed by the React SPA at runtime)
- *   - public/blog/index.xml           (RSS 2.0 feed, linked from the blog)
+ * Reads markdown posts from content/blog/*.md, parses YAML frontmatter, and
+ * writes into public/blog/:
+ *   - blog-manifest.json        (list of posts consumed by the React SPA)
+ *   - index.xml                 (RSS 2.0 feed, linked from the blog)
+ *   - <slug>.json per post      (title/date/excerpt/content, fetched on demand)
+ *
+ * GitHub Pages does NOT serve raw .md files, so the source markdown lives in
+ * content/blog/ (outside public/) and is converted to JSON at build time. The
+ * SPA therefore never fetches .md at runtime.
  *
  * Run automatically via `npm run build-blog` (wired into prestart/prebuild).
  *
@@ -18,9 +24,10 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const BLOG_DIR = path.join(__dirname, '..', 'public', 'blog');
-const MANIFEST_PATH = path.join(BLOG_DIR, 'blog-manifest.json');
-const RSS_PATH = path.join(BLOG_DIR, 'index.xml');
+const CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
+const OUT_DIR = path.join(__dirname, '..', 'public', 'blog');
+const MANIFEST_PATH = path.join(OUT_DIR, 'blog-manifest.json');
+const RSS_PATH = path.join(OUT_DIR, 'index.xml');
 
 const SITE_URL = 'https://lennysgarage.github.io';
 const BLOG_BASE = '/blog';
@@ -56,11 +63,11 @@ function toRfc822(date) {
 
 function loadPosts() {
   const files = fs
-    .readdirSync(BLOG_DIR)
+    .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith('.md'));
 
   const posts = files.map((filename) => {
-    const raw = fs.readFileSync(path.join(BLOG_DIR, filename), 'utf8');
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf8');
     const { data: fm, content } = matter(raw);
 
     const slug = fm.slug || filename.replace(/\.md$/, '');
@@ -74,7 +81,7 @@ function loadPosts() {
 
     return {
       slug,
-      filename,
+      filename: `${slug}.json`,
       date: dateStr,
       title,
       excerpt,
@@ -97,6 +104,22 @@ function writeManifest(posts) {
   }));
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
   console.log(`Wrote ${manifest.length} entries to ${path.relative(process.cwd(), MANIFEST_PATH)}`);
+}
+
+function writePostJson(posts) {
+  if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+  posts.forEach((p) => {
+    const outPath = path.join(OUT_DIR, p.filename);
+    const payload = {
+      slug: p.slug,
+      title: p.title,
+      date: p.date,
+      excerpt: p.excerpt,
+      content: p.content,
+    };
+    fs.writeFileSync(outPath, JSON.stringify(payload, null, 2) + '\n');
+  });
+  console.log(`Wrote ${posts.length} post JSON files to ${path.relative(process.cwd(), OUT_DIR)}`);
 }
 
 function writeRss(posts) {
@@ -137,5 +160,6 @@ ${items}
 
 const posts = loadPosts();
 writeManifest(posts);
+writePostJson(posts);
 writeRss(posts);
 console.log('Blog build complete.');

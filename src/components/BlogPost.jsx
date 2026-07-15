@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { parseFrontmatter } from '../utils/parseFrontmatter';
 import Header from './Header';
 import ScrollToTop from './ScrollToTop';
 import data from '../myData';
@@ -55,11 +54,10 @@ const BlogPost = () => {
                 if (!mdRes.ok) {
                     throw new Error(`Failed to fetch ${postInfo.filename}: ${mdRes.status} ${mdRes.statusText}`);
                 }
-                const markdown = await mdRes.text();
-                const { data: frontmatter, content } = parseFrontmatter(markdown);
+                const post = await mdRes.json();
 
                 if (!cancelled) {
-                    setPost({ ...frontmatter, content });
+                    setPost(post);
                     setLoading(false);
                 }
             } catch (err) {

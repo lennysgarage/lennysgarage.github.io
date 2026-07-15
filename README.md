@@ -11,13 +11,18 @@ This runs `npm run build` (which first regenerates the blog manifest + RSS feed 
 
 ## Blog
 
-Blog posts are Markdown files with YAML frontmatter in `public/blog/`. A build
-script scans them and generates:
+Blog posts are Markdown files with YAML frontmatter in `content/blog/`. A build
+script reads them and writes generated assets into `public/blog/`:
 
-- `public/blog/blog-manifest.json` — consumed by the React SPA at runtime.
+- `public/blog/blog-manifest.json` — list of posts consumed by the React SPA.
+- `public/blog/<slug>.json` — per-post title/date/excerpt/body, fetched on demand.
 - `public/blog/index.xml` — an RSS 2.0 feed.
 
-To add a post, drop a `public/blog/<slug>.md` file in with this frontmatter:
+> Source markdown lives in `content/blog/` (not `public/`) because GitHub Pages
+> does not serve raw `.md` files. The build script converts each post to JSON so
+> the SPA never fetches `.md` at runtime.
+
+To add a post, drop a `content/blog/<slug>.md` file in with this frontmatter:
 
 ```markdown
 ---
@@ -30,9 +35,9 @@ Body in Markdown...
 ```
 
 The `slug` defaults to the filename; set `excerpt` to override the auto-derived
-summary. `npm start` and `npm run build` regenerate the manifest and RSS feed
-automatically (via `prestart` / `prebuild`). Article URLs follow
-`/blog/YYYY/MM/DD/<slug>/`, derived from the `date` field.
+summary. `npm start` and `npm run build` regenerate the manifest, per-post
+JSON, and RSS feed automatically (via `prestart` / `prebuild`). Article URLs
+follow `/blog/YYYY/MM/DD/<slug>/`, derived from the `date` field.
 
 ### Deep-link / 404 handling on GitHub Pages
 
