@@ -21,6 +21,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "build-blog": "node scripts/build-blog-manifest.js",
+    "prestart": "npm run build-blog",
+    "prebuild": "npm run build-blog",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

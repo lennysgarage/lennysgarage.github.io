@@ -10,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:year/:month/:day/:slug" element={<BlogPost />} />
+        {/* Backwards-compatible flat slug URL; BlogPost canonicalizes it. */}
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
     </div>

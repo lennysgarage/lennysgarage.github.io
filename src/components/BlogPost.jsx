@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { parseFrontmatter } from '../utils/parseFrontmatter';
@@ -7,55 +7,77 @@ import Header from './Header';
 import ScrollToTop from './ScrollToTop';
 import data from '../myData';
 
+const formatDate = (dateStr) => {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    if (!y || !m || !d) return dateStr;
+    return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+};
+
+const pad = (n) => String(n).padStart(2, '0');
+
 const BlogPost = () => {
-    const { slug } = useParams();
+    const { year, month, day, slug } = useParams();
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [redirect, setRedirect] = useState(null);
 
     useEffect(() => {
+        let cancelled = false;
         const loadPost = async () => {
             try {
-                // First, get the manifest to find the filename
                 const publicUrl = process.env.PUBLIC_URL || '';
-                const manifestResponse = await fetch(`${publicUrl}/blog/blog-manifest.json`);
-                
-                if (!manifestResponse.ok) {
-                    throw new Error(`Failed to fetch manifest: ${manifestResponse.status} ${manifestResponse.statusText}`);
+                const res = await fetch(`${publicUrl}/blog/blog-manifest.json`);
+                if (!res.ok) {
+                    throw new Error(`Failed to fetch manifest: ${res.status} ${res.statusText}`);
                 }
-                
-                const manifest = await manifestResponse.json();
-                const postInfo = manifest.find(p => p.slug === slug);
-                
+                const manifest = await res.json();
+                const postInfo = manifest.find((p) => p.slug === slug);
+
                 if (!postInfo) {
-                    setError('Post not found');
-                    setLoading(false);
+                    if (!cancelled) setError('Post not found');
+                    if (!cancelled) setLoading(false);
                     return;
                 }
 
-                // Load the markdown file
-                const response = await fetch(`${publicUrl}/blog/${postInfo.filename}`);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch ${postInfo.filename}: ${response.status} ${response.statusText}`);
+                // Canonicalize: flat /blog/:slug -> dated URL.
+                if (!year) {
+                    const [y, m, d] = postInfo.date.split('-');
+                    if (!cancelled) setRedirect(`/blog/${y}/${pad(Number(m))}/${pad(Number(d))}/${slug}`);
+                    return;
                 }
-                const markdown = await response.text();
+
+                const mdRes = await fetch(`${publicUrl}/blog/${postInfo.filename}`);
+                if (!mdRes.ok) {
+                    throw new Error(`Failed to fetch ${postInfo.filename}: ${mdRes.status} ${mdRes.statusText}`);
+                }
+                const markdown = await mdRes.text();
                 const { data: frontmatter, content } = parseFrontmatter(markdown);
 
-                setPost({
-                    ...frontmatter,
-                    content
-                });
-                setLoading(false);
+                if (!cancelled) {
+                    setPost({ ...frontmatter, content });
+                    setLoading(false);
+                }
             } catch (err) {
                 console.error('Error loading blog post:', err);
-                setError('Failed to load blog post');
-                setLoading(false);
+                if (!cancelled) {
+                    setError('Failed to load blog post');
+                    setLoading(false);
+                }
             }
         };
 
         loadPost();
-    }, [slug]);
+        return () => { cancelled = true; };
+    }, [slug, year, month, day]);
+
+    if (redirect) {
+        return <Navigate to={redirect} replace />;
+    }
 
     if (loading) {
         return (
@@ -89,29 +111,19 @@ const BlogPost = () => {
             <Header name={data.name} />
             <div className="blog-post-container">
                 <Link to="/blog" className="blog-back-link">← Back to Blog</Link>
-            <article className="blog-post">
-                <header className="blog-post-header">
-                    <h1 className="blog-post-title">{post.title}</h1>
-                    <div className="blog-post-meta">
-                        <span className="blog-post-date">
-                            {(() => {
-                                const date = new Date(post.date);
-                                date.setDate(date.getDate() + 1);
-                                return date.toLocaleDateString('en-US', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric'
-                                });
-                            })()}
-                        </span>
+                <article className="blog-post">
+                    <header className="blog-post-header">
+                        <h1 className="blog-post-title">{post.title}</h1>
+                        <div className="blog-post-meta">
+                            <span className="blog-post-date">{formatDate(post.date)}</span>
+                        </div>
+                    </header>
+                    <div className="blog-post-content">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                            {post.content}
+                        </ReactMarkdown>
                     </div>
-                </header>
-                <div className="blog-post-content">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {post.content}
-                    </ReactMarkdown>
-                </div>
-            </article>
+                </article>
             </div>
             <ScrollToTop />
         </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Jonathan's Portfolio</title>
+    <!--
+      SPA redirect shim for GitHub Pages.
+      GitHub Pages serves this file (with HTTP 404) for any unknown path such as
+      /blog/... We capture the requested path/search/hash, encode it into a `p`
+      query parameter (using ~and~ in place of &), and redirect to "/" which is
+      served as index.html (HTTP 200). The restore script in index.html then
+      rewrites the browser history back to the original path so the React Router
+      can render the correct route.
+
+      Based on the approach by Rafael Pedicini (MIT):
+      https://github.com/rafgraph/spa-github-pages
+    -->
+    <script type="text/javascript">
+      (function (l) {
+        // segmentCount is 0 for user/org Pages served from the domain root
+        // (e.g. lennysgarage.github.io). For a project Pages site under
+        // /<repo>/ it would be 1.
+        var segmentCount = 0;
+        var parts = l.pathname.split('/').slice(1 + segmentCount);
+        var target =
+          l.protocol + '//' + l.host + '/?p=' +
+          parts.join('/') +
+          (l.search || '') +
+          (l.hash || '');
+        // Encode '&' so it survives the query string round-trip.
+        target = target.replace(/&/g, '~and~');
+        l.replace(target);
+      }(window.location));
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/" />
+    </noscript>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/">Jonathan's Portfolio</a>...</p>
+  </body>
+</html>

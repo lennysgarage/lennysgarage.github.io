@@ -503,6 +503,17 @@ a {
   top: -2rem;
 }
 
+.blog-feed-link {
+  color: #ce796b;
+  text-decoration: underline;
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+.blog-feed-link:hover {
+  opacity: 0.6;
+}
+
 .blog-loading,
 .blog-empty {
   font-size: 2rem;
